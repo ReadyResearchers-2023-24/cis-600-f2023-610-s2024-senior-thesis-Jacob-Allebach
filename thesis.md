@@ -87,45 +87,53 @@ The headings below propose _one way_ you might structure this section of the doc
 
 ## Opening
 
-  Game development is a rather difficult field of work to get involved with. There's
-so many different parts that make up an entire game, and without a large team of
-people to split up the work with, a huge skill set is required of one person to
-fully develop something substantial. Luckily, making games nowadays is much easier
-than it was 40 years ago. With the help of the internet, there's endless resources
-available to find tutorials and guides on how to create whatever one could want. A
-big part of that is in the availability of game engines, like Unreal Engine and Unity,
-which provide a fairly user-friendly interface to develop games and robust systems to
-support all types of ideas. With engines being the foundation of most game
-development, many look to plugins to solve the most basic and broad of problems that
-they might face when initially starting work on a new idea. Plugins are very common
-to the game development space as they are essentially just pre-made software that one
-can import into any project and start using immediately for whatever purpose is
-needed. They're primarily used for further assistance in performing specific tasks
-that the user doesn't necessarily want to create an entire system for from scratch.
-There are a massive number of plugins available for people to use with any given
-engine, and most can be found fairly easily just by searching for them online. The
-usefulness of many plugins can really ease the monumental amount of work one might
-have to do to create the game they're imagining. (WRITING NOTE: This section is
-rambling way too much, should get into discussing random generation way sooner)
+  Game development in the modern day has become more accessible than ever before
+with access to game engines like Unity that provide an interface the user can
+easily interact with to create polished games. [@haas2014history] Even within the
+engines themselves, there are additional programs that can be installed to make the
+process of game development even easier through the use of plugins. These plugins can
+be imported into most projects and are essentially just pre-made pieces of code that
+do something specifically useful to the given project it's installed for. There are
+an abundance of plugins with specific functions that could be useful for a wide array
+of games, and it's great to see that many game developers create these plugins so that
+others can have an easier time entering the game development space. It's no wonder that
+there are so many high quality games being released from independent, amateur game
+developers when the tools to do so are just a few internet searches away. This project
+is an attempt to make game development even more accessible by creating a Unity plugin
+to assist with the random generation of maps, specifically in the style of Roguelike
+games.
 
-  When it comes to recent trends in the indie game development space, the Roguelike
-genre has influenced the industry in many ways. Random generation and challenging
-gameplay excites players to keep playing games of the like to hone their skill.
-Even games that aren't strictly Roguelikes themselves like to incorporate aspects
-of procedural or random generation into various facets of their games, especially
-their map systems, which often leads to fresh experiences that are unique to every
-player. This makes for highly entertaining and replayable experiences that keep people
-coming back.
+  When it comes to recent trends in the indie game development space, Roguelikes have
+been rather popular for several reasons. The first has to do with the core aspects of
+the Roguelike genre, one of which is that whenever you lose in the game, you must start
+back from the beginning. In most modern Roguelikes, there's some form of progression
+over time where you can unlock things to use at the start of a given run through the
+game by completing objectives over the course of several runs. This is mostly so that
+the gameplay experience doesn't become too frustrating and to save some progress instead
+of starting from scratch. The other main element of Roguelikes, and the one this project
+is focused on, is that they heavily involve random generation to vary the gameplay
+experience. Usually things like enemies, items, and level layouts are randomly generated
+so that the player must adapt to the new challenge to succeed.
 
-  The software created for this project is a plugin for Unity to assist in the
-process of random map generation by taking pre-made rooms created by the user
-and placing and connecting them to generate maps in an efficient and easy way.
-The goal isn't just to create a good generation algorithm, but primarily to
-make the plugin easy to use so that those unfamiliar with coding something like
-it would still have the ability to create the game they want. In addition, the
-plugin itself is robust with many options for the user to select from to specify
-parts of the generation process. Overall, it's a practical, low effort way for
-amateur developers to more easily create games of the Roguelike genre.
+  The part of Roguelike generation that is key to this project is the randomization of
+level layouts, also known as maps. Having random level layouts is one of the simplest
+ways of keeping the gameplay super engaging and varying in a Roguelike. For most
+Roguelikes, if the environment you had to traverse was the same every time you started a
+run, it would feel extremely repetitive after only a short time of playing. While it's
+standard for games in this genre to have randomly generated maps, most games play very
+differently and necessitate different kinds of maps. The caveat with this being such
+an important aspect, however, is that understanding and implementing map generation
+algorithms can be difficult if you're unfamiliar with how they operate.
+
+  This is why the software created for this project is a Unity plugin to assist in the
+process of random map generation. It takes pre-made rooms created by the user
+and places them around an area before connecting each one with hallways to generate
+sprawling, dungeon-like maps. The goal isn't just to create a good generation
+algorithm, but primarily to make the plugin easy to use so that those unfamiliar
+with coding something like it would still have the ability to create the game they
+want. In addition, the plugin itself is robust with many options for the user to select
+from to specify parts of the generation process. Overall, it's a practical, low effort
+way for amateur game developers to more easily create games in the Roguelike genre.
 
 ## Motivation
 
@@ -143,12 +151,34 @@ generation this software implements.
 
 ## Current State of the Art
 
-Much of this plugin was inspired by the level generation of the popular Roguelike
-Enter the Gungeon. It inspired many developers to create games of a similar
-style and still remains one of the most popular Roguelikes of all time, so it
-seems like a solid baseline for map generation. There are also many articles
-that discuss map generation philosophies and various commonly used algorithms.
-(WRITING NOTE: Go more into detail on the articles and algorithms)
+  There are two main ways to generate a map for a game: tile-by-tile generation and
+room-and-connector based generation. The tile-by-tile generation essentially creates a
+map from scratch by filling every tile in a given area with various objects or enemies
+based on the criteria provided to the algorithm. These games must have a specific algorithm
+for determining what can and cannot be placed in each tile based on surrounding tiles,
+existing tiles, and many other factors. A good example of this generation style is in the
+game Spelunky, where you're playing as an explorer trying to find treasures throughout a
+series of locations under the earth, with each increasing in difficulty as you explore. The
+levels are procedurely generated to have specific enemies and special tiles according to
+the aesthetic and design requirements for the current area. [@baghdadi2015procedural] This
+generation technique makes sense for the type of environment they're going for, and it
+especially makes it feel as though you're exploring a sprawling, expansive mine filled with
+dangers that could be around any corner.
+
+  The room-and-connector generation varies a bit from tile-by-tile in that it doesn't go
+through every position on the map and determine what can and cannot be there, but instead
+takes a set of pre-made rooms that were created before starting and places them randomly
+around the permitted generation space before connecting the various rooms to form a
+dungeon-like map. This doesn't require anywhere near as complex of an algorithm as the
+tile-by-tile generation, but it does need to keep track of the locations of rooms, what's
+in them, and check for any overlaps between the rooms and the connectors between them. An
+example of this generation style can be seen in the game Enter the Gungeon.
+[@dodgeroll2016gungeon] The goal of the game is to get through the five main levels by
+exploring the rooms of each map to find loot before challenging the boss and moving to the
+next level. Each level in Enter the Gungeon is generated by choosing from a set of rooms
+that change each floor and randomly placing them before connecting each one with hallways
+on their designated hallway location points. This second type of generation is the one that
+this project implements.
 
 ## Goals of the Project
 
@@ -186,6 +216,8 @@ chronological, or by topic, or according to some other criteria
 
 If ethical issues are central to this work, you should also address historical and
 contemporary issues or efforts made to address them.
+
+# FIRST TWO CHAPTERS END HERE
 
 # Method of approach
 
