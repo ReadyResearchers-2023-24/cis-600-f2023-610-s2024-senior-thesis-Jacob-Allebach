@@ -199,22 +199,30 @@ game development an even more approachable activity for newcomers.
 
 ## Ethical Implications
 
-This document requires that you discuss the ethical implications of your work -- no
-matter how benign you consider the outcome of your project. As several major studies
-of ethical issues in computer science assert: _no project is completely value-neutral_.
+  Although a tool that assists game developers with a fairly specific task doesn't seem as
+though it would be able to bring any harm, there are some ethical implications to consider when
+it comes to creating a plugin. The primary concern that could be brought up is that creating a
+plugin to do the work of a programmer could reduce the number of programmers with specific
+expertise that might be hired for this specific kind of task. While there is the potential for
+this to occur in the future, the technology used in this project isn't robust enough to warrant
+the replacement of human developers quite yet. In addition, one would still generally need
+to have an understanding of how map generation works to fully utilize this plugin to the best
+of its ability, so it would only be reducing the amount of manual work required of one in that
+kind of circumstance.
 
-To assist you in elaborating on these issues, the following areas are topics you might
-consider addressing. You do not need to address all of them.
-
-* Information Privacy
-* Information Accuracy (e.g. can contain reliability)
-* Potential Misuse (e.g. computer crime, unintended consequences)
-* Second- or Third-Party Risk (e.g. safety)
-* Data Collection Issues (e.g. issues inherent in collecting data)
-* Algorithmic or Data Bias
-* Potential Power Difference / Social Imbalance / Issues in Equity
-
-In addition, reflect on ways that the above harms can be or are mitigated by your work
+  A second point that could be brought up is that the reliance on a plugin such as this one
+could hinder a game developer's ability to truly understand how their game entirely functions
+since the algorithm would already be build for them. This also relates to the previous point,
+however, which is that one would need to understand map generation concepts anyway to truly
+make best use of this plugin. On top of that, if a game developer ever encounters a situation
+in which they can't use this plugin for their map generation, whether there's a specific function
+that isn't implemented here or just that they're trying their hand at making their own, they
+will need to do the necessary research to build a custom map generation algorithm, meaning they
+would now be knowledgable in the field they were previously shortcutting by using this plugin.
+So overall, while there are certainly some points to be made about a new plugin cutting down
+on the necessity of knowledgable programmers for game development, one plugin alone can't fully
+replace the hard work of long-time developers that know how to create the exact algorithm that's
+needed.
 
 # Related work
 
