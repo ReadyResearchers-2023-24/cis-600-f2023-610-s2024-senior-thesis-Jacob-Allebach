@@ -135,20 +135,6 @@ want. In addition, the plugin itself is robust with many options for the user to
 from to specify parts of the generation process. Overall, it's a practical, low effort
 way for amateur game developers to more easily create games in the Roguelike genre.
 
-## Motivation
-
-A lot of the motivation for this project stems from two things: the increase in
-access to game development software and the lack of this desired tool in the
-game development space. With engines being so commonly used to develop games
-and countless plugins being readily available for anybody to use, it makes sense
-for this tool to exist within the space. Creating more ways for people to get
-into game development easier is most often a good thing as it allows more
-people to create their vision. To discuss the second main motivating factor,
-it's honestly astonishing that this specific tool hasn't been created before!
-Although there are plugins available to assist with some types of map generation,
-most of them have to do with tile-by-tile generation as opposed to the dungeon-style
-generation this software implements.
-
 ## Current State of the Art
 
   There are two main ways to generate a map for a game: tile-by-tile generation and
@@ -180,12 +166,36 @@ that change each floor and randomly placing them before connecting each one with
 on their designated hallway location points. This second type of generation is the one that
 this project implements.
 
+## Motivation
+
+  A lot of the motivation for this project stems from two things: the increase in
+access to game development software and the lack of this desired tool in the
+game development space. With engines being so commonly used to develop games
+and countless plugins being readily available for anybody to use, it makes sense
+for this tool to exist within the space. Creating more ways for people to get
+into game development easier is most often a good thing as it allows more
+people to build their ideas. The second main motivating factor is that there currently
+just isn't any tool that helps with this type of generation. There are many resources
+that discuss map generation and how to create the algorithms that go into them, and
+although there are plugins available to assist with tile-by-tile generation, there's no
+precedent for helping developers with the room-and-connector generation this software
+implements. There are even examples of people online asking about how to perform map
+generation similar to that of Enter the Gungeon, so it is very clearly a tool that
+people want and would use to help develop games.
+
 ## Goals of the Project
 
-The primary goal of the project was to create a plugin that's both easy to use
-and robust in its generation capabilities. Because its meant to help bridge the gap
-between those that want to make games and the ability to actually create them,
-ease of use was the main objective going into it.
+  While the goal of making the plugin was to create an interactive system for generating
+maps for Roguelike games, the primary objective while doing it was to make it accessible
+for those wildly unfamiliar with how map generation works. This is why the user study
+discussed later was conduced the way that it was, because feedback on user interactivity
+and ease of use was the most important factor in determining the success of the plugin.
+Additionally, the program was meant to be versatile, with the ability to generate drastically
+different maps depending on the settings toggled by the user. This allows for users to
+tailor the plugin to do exactly what they need for any kind of game they're making with this
+generation style. It was important that both of these things were implemented in the final
+program so that it would be a well-rounded plugin that is also easy to use for anyone, making
+game development an even more approachable activity for newcomers.
 
 ## Ethical Implications
 
