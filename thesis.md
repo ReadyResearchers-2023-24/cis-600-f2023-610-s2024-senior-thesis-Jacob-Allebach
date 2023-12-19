@@ -367,7 +367,50 @@ players.
 
 ## Research on Room-and-Connector Generation
 
+  Throughout the research on this project, there were a few sources that directly
+inspired the generation method used in the final version and helped in proving the
+feasibility of this type of program. The article "Procedural Game Level Generation by
+Joining Geometry with Hand-Placed Connectors" goes over the concept and implementation
+of generating maps using pre-made rooms and connecting them to each other.
+[@silva2020procedural] The example presented in this article is built using 3D room
+pieces and shows off several algorithms for generating maps with this method. The main
+four algorithms that it shows are arena, corridor, star, and branch generation. Arena
+generation is fairly standard, generating as many rooms adjacent to the currently
+selected piece as possible, moving to the next one when all the spaces are full,
+resulting in a sprawling area filled with rooms. Corridor generation does the opposite,
+only generating one piece adjacent to the current one and moving to the newly generated
+piece to continue the process, resulting in a single long path of connected rooms that
+is fairly linear to traverse. The star method is a combination of the arena and corridor
+methods, beginning by generating rooms all adjacent to the starting room, and then only
+generating singular paths from each of these extensions to create several corridor-like
+paths. Lastly, branch generation starts by using corridor generation to create one path
+forward, but then chooses points in the path to create new diverging paths. Each of
+these methods provide drastically different types of maps that provide highly varying
+gameplay experiences and were crucial features to add as options in this projects
+plugin.
 
+  Inside of the previous article, there is a section discussing the exact ways in which
+this map generation style is utilized within games like The Binding of Isaac: Rebirth
+and Enter the Gungeon, which both use procedural map generation to tremendous success.
+Both of them are Roguelikes that use a form of the room-and-connectors method, but in
+slightly different ways. The Binding of Isaac: Rebirth makes use of all its rooms being
+shaped and sized in a particular way that the maps can fit on a sort of grid system,
+meaning every room can be placed perfectly adjacent to one another without worry of
+overlap. Enter the Gungeon is not built in the same way as every room is varying in size
+and shape, with the connector pieces varying in location on each wall depending on the
+room. This makes the generation algorithm quite a bit more complicated as it has to
+connect each room with a hallway to avoid the issue of excessive overlapping when trying
+to initially generate a map, but that also means it has to take each hallway into account
+along with the rooms themselves. In the previously discussed post discussing tools for
+helping with map generation similar to that of Enter the Gungeon, one of the developers
+for the game left a comment discussing these exact methods used for generating the maps
+within it. [@night2018generation] He details the concept for having pre-made rooms that
+are placed and connected to create full maps, but also discusses how they are generated
+according to a graph of player actions as well. Combining these generation tactics to
+result in a randomized map that also feels intentionally crafted for the player makes
+the maps in Enter the Gungeon extremely effective at providing an entertaining
+experience for the player. That is why it served at the primary inspiration and
+somewhat of a baseline for the generation implemented in this project's plugin.
 
 # FIRST TWO CHAPTERS END HERE
 
