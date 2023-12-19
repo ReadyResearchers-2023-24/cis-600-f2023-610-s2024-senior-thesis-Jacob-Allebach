@@ -349,6 +349,22 @@ the data in this article didn't impact this project due to its tile-by-tile gene
 style, this does reinforce the concept that maps can be generated to incentivize certain
 playstyles.
 
+  An article that leans more towards the generation method used in this project, however,
+is about using answer set programming for dungeon generation. [@smith2014logical] This
+article is using a method similar to that which was used for Dwarf Quest in that it takes
+a set of actions it wants the player to do, but combines it with the tile-by-tile and
+multi-step generation methods of the previous article. It does this by first establishing
+a set of pre-made rooms and hallways that can be placed around the map, so instead of
+individually drilling through each tile to create the level, it uses chunks of tiles as
+preestablished areas that make for a much more refined and intentional-feeling level.
+After creating the map, it then goes in tile-by-tile and places the other objects such
+as enemies, treasures, and exits. This makes it so that the space being traversed feels
+more developed while keeping the variability of the tile-by-tile generation style. Most
+importantly though, this article establishes the use of pre-made rooms being effective
+in map generation and shows that they are a useful tool in developing algorithms for it
+as it takes some of the load off of the computation while improving the experience for
+players.
+
 ## Research on Room-and-Connector Generation
 
 
