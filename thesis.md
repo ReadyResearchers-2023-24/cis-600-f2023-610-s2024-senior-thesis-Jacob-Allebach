@@ -264,7 +264,7 @@ so that amateur game developers could have easy access to powerful tools that he
 games. Although there has been some controversy in the past year regarding pricing and terms
 of service that the company has implemented, it still remains one of the most popular and
 easiest engines to start making games with, and it continues to be a foundation of the game
-development industry.
+development industry. [@unity2023homepage]
 
   Inside the Unity engine itself, the interface is built so that the user can understand
 what is going on without too much trouble by presenting all the necessary windows up front,
@@ -310,6 +310,48 @@ a given object without having to manually copy and duplicate it to another scene
 allow for the instantiation of objects within a scene by spawning them in through a script.
 Prefabs generally make the process of developing a game much faster as it cuts down on the
 amount of object duplication that would be required otherwise.
+
+## Preliminary Research on Map Generation
+
+  In order to get a better understanding of how map generation functioned, there were a few
+resources used near the beginning of this project that cover this topic quite well. The first
+of those is an article titled "Mixed-Initiative Design of Game Levels: Integrating Mission
+Space into Level Generation." [@karavolos2015mixed] In this article, it discusses how most
+game levels are designed with an objective in mind, but when generating content in real-time
+like many Roguelikes do, it can be difficult to make sure the objective aligns with how the
+level is generated so that it feels like it makes sense when playing. One of the examples it
+gives of how to do this is through the game Dwarf Quest, which utilizes an action graph of
+the intended player experience to generate each individual room. The action graph would
+entail the actions the player is meant to take when traversing the dungeon. This graph is
+then transformed into a level layout by generating each room based on what the player is
+supposed to do next. It's a rather inventive way of tailoring the level generation to result
+in the intended player experience and significantly influenced this project's featured
+options. Giving the game developer options for more control over how each map can be
+tailored to a certain type of gameplay feel was crucial in making a robust program that
+users can put in their games easily.
+
+  Another article that provides a lot on map generation is "Two-step Constructive Approaches
+for Dungeon Generation." [@green2019two] This takes a different approach to generation as it
+utilizes a tile-by-tile generation system, but the core concepts it implements are still
+very relevant to the way this project was shaped. The two-step process the article is named
+after begins with a layout creator, followed by a game element furnisher. The layout creator
+starts with a grid filled with walls, then drills through the walls in the grid to make a
+level layout based on the type of drilling method. The game element furnisher takes the level
+created by the first step and places objects on various tiles based on the constraints of
+each object in each different furnishing method. This approach to level generation is highly
+variable depending on the methods used for each step, but it's very clear that some
+generation styles cater to certain playstyles compared to others. As an example, it shows in
+the data from the article that a type of player that runs through the level as fast as
+possible completed the levels most often when the first step in level generation used the
+cellular automata method because it created much larger, open spaces that allows the player
+to avoid fighting strong enemies more easily. Even though the specific methods used to get
+the data in this article didn't impact this project due to its tile-by-tile generation
+style, this does reinforce the concept that maps can be generated to incentivize certain
+playstyles.
+
+## Research on Room-and-Connector Generation
+
+
 
 # FIRST TWO CHAPTERS END HERE
 
