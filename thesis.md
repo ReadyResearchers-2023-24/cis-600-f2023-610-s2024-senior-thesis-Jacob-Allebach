@@ -151,7 +151,7 @@ generation technique makes sense for the type of environment they're going for, 
 especially makes it feel as though you're exploring a sprawling, expansive mine filled with
 dangers that could be around any corner.
 
-![A screenshot from the game Spelunky](images/Spelunky-Credit-Blitworks-2%402000x1133.jpg)
+![A screenshot from the game Spelunky [@martin2021spelunky]](images/Spelunky-Credit-Blitworks-2%402000x1133.jpg)
 
   The room-and-connector generation varies a bit from tile-by-tile in that it doesn't go
 through every position on the map and determine what can and cannot be there, but instead
@@ -168,7 +168,7 @@ that change each floor and randomly placing them before connecting each one with
 on their designated hallway location points. This second type of generation is the one that
 this project implements.
 
-![An example of a map generated in the game Enter the Gungeon](images/gungeon_castle.png)
+![An example of a map generated in the game Enter the Gungeon [@boris2019gungeon]](images/gungeon_castle.png)
 
 ## Motivation
 
@@ -396,21 +396,22 @@ Both of them are Roguelikes that use a form of the room-and-connectors method, b
 slightly different ways. The Binding of Isaac: Rebirth makes use of all its rooms being
 shaped and sized in a particular way that the maps can fit on a sort of grid system,
 meaning every room can be placed perfectly adjacent to one another without worry of
-overlap. Enter the Gungeon is not built in the same way as every room is varying in size
-and shape, with the connector pieces varying in location on each wall depending on the
-room. This makes the generation algorithm quite a bit more complicated as it has to
-connect each room with a hallway to avoid the issue of excessive overlapping when trying
-to initially generate a map, but that also means it has to take each hallway into account
-along with the rooms themselves. In the previously discussed post discussing tools for
-helping with map generation similar to that of Enter the Gungeon, one of the developers
-for the game left a comment discussing these exact methods used for generating the maps
-within it. [@night2018generation] He details the concept for having pre-made rooms that
-are placed and connected to create full maps, but also discusses how they are generated
-according to a graph of player actions as well. Combining these generation tactics to
-result in a randomized map that also feels intentionally crafted for the player makes
-the maps in Enter the Gungeon extremely effective at providing an entertaining
-experience for the player. That is why it served at the primary inspiration and
-somewhat of a baseline for the generation implemented in this project's plugin.
+overlap. [@mcmillen2014isaac] Enter the Gungeon is not built in the same way as every
+room is varying in size and shape, with the connector pieces varying in location on each
+wall depending on the room. This makes the generation algorithm quite a bit more
+complicated as it has to connect each room with a hallway to avoid the issue of excessive
+overlapping when trying to initially generate a map, but that also means it has to take
+each hallway into account along with the rooms themselves. In the previously discussed
+post discussing tools for helping with map generation similar to that of Enter the
+Gungeon, one of the developers for the game left a comment discussing these exact methods
+used for generating the maps within it. [@night2018generation] He details the concept for
+having pre-made rooms that are placed and connected to create full maps, but also
+discusses how they are generated according to a graph of player actions as well. Combining
+these generation tactics to result in a randomized map that also feels intentionally
+crafted for the player makes the maps in Enter the Gungeon extremely effective at
+providing an entertaining experience for the player. That is why it served at the primary
+inspiration and somewhat of a baseline for the generation implemented in this project's
+plugin.
 
 # FIRST TWO CHAPTERS END HERE
 
