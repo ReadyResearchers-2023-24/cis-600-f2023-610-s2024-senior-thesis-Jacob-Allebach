@@ -409,8 +409,6 @@ providing an entertaining experience for the player. That is why it served at th
 inspiration and somewhat of a baseline for the generation implemented in this project's
 plugin.
 
-# FIRST TWO CHAPTERS END HERE
-
 # Method of approach
 
 This chapter answers the "how" question - how did you complete your project,
@@ -429,6 +427,25 @@ This should contain:
 For those projects whose implications address social or moral issues (i.e. ethical
 standards, causes, effects), you will want to use this section to describe how you
 actively mitigated or considered these issues.
+
+## Part 1: The User's Perspective
+
+* This first section will discuss how the plugin is interacted with from the user's end
+* There won't be any code involved in this section of the chapter, but it will instead
+  focus on what a developer using this plugin will see and work with in the Unity
+  interface
+* More specifically, this will go over the `MapGenerator` script, the `RoomDataContainer`
+  script, the process of making a room, and adding all of the necessary game objects and
+  data to the map generator itself
+
+## Part 2: The Algorithm Behind the Interface
+
+* This section is going over exactly what's going on within the scripts and how it's all
+  formatted
+* The algorithm is very complicated itself and somewhat convoluted in some areas, so good
+  diagrams will be needed to explain everything in an understandable fashion
+
+# THIRD CHAPTER ENDS HERE
 
 # Experiments
 
