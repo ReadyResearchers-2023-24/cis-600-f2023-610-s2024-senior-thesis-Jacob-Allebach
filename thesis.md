@@ -530,6 +530,125 @@ user specifications.
 * The algorithm is very complicated itself and somewhat convoluted in some areas, so good
   diagrams will be needed to explain everything in an understandable fashion
 
+  Now that the user inputs are clearly defined, the code within the scripts can do its part
+and generate a random map utilizing what the user provided. The main variables used in the
+Map Generator algorithm include the five user inputs mentioned previously - Map Container,
+Number of Rooms, Vertical & Horizontal Hallway Sprites, and the list of Rooms - but there are
+several others that are defined before the program starts in order to ensure it runs
+smoothly. The first of these is the Current Room, which represents the room that is
+currently selected by the generator to attach more rooms to. The next two are the list of
+Placed Rooms and the Placed Room Number, which work together by keeping track of every room
+placed during generation and storing them in the list while the number tracks the position
+of the Current Room within this list of Placed Rooms. The last variables created before the
+algorithm starts is the Vertical Gap and Horizontal Gap, which will be assigned integer
+values based on the vertical size of the Vertical Hallway Sprite and the horizontal size of
+the Horizontal Hallway Sprite after the program starts.
+
+  With all the initializing variables out of the way, the next step is to actually run the
+main code within the script, which lies within the `Start` function. This function is very
+important to all script coding in Unity because it is always called and run before the first
+frame it enters the scene. This means that the code within a `Start` function is guaranteed
+to run when the object the script is attached to enters a scene or when a scene is started
+with the object in it. Since the entirety of the algorithm that generates the map is within
+`Start`, a full map will always be created before any player is actionable within the scene.
+Unfortunately, this can cause some slowdowns in some cases as the algorithm occasionally
+takes a long time to complete. The map generation begins by choosing a random room from the
+user-provided Rooms list to act as the starting room for the whole map. It is instantiated
+within the scene and sets its parent to the Map Container given by the user. The Current Room
+variable is set to this starting room, and the starting room is added to the Placed Rooms
+list, setting the Placed Room Number to 1 to indicate it's working with the first room in the
+list. Along with these, the variable Room Count is initialized, which tracks how many rooms
+have been placed down overall.
+
+  The next chunk of the code creates two new game objects within the script to represent the
+Vertical & Horizontal Hallways by initializing them with three components: a Sprite Renderer,
+a Rigidbody 2D, and a Box Collider 2D. The Sprite Renderer of each is accessed and modified
+so that their sprites are set to the corresponding Vertical or Horizontal Hallway Sprite
+provided by the user, and the Draw Mode of each is set to "Sliced" instead of "Simple" so
+that the size of the sprite can be accessed. The Vertical Gap and Horizontal Gap variables
+are both set to the corresponding height and width of the sprites that were just assigned,
+and the Box Collider 2D of each is set to the size of their sprites as well. Lastly, the
+Rigidbody 2D of both game objects is set to Static instead of Dynamic so that they aren't
+affected by gravity during the scene's runtime. During the creation of these new game
+objects, one instance of each is automatically placed into the current scene, but since these
+hallways are meant to connect rooms later, both of these current instances are destroyed
+before moving forward.
+
+  Now this brings the code to the main bulk of the actual algorithm that goes into generating
+the map, which is the while loop. This while loop contains the rest of the code in the map
+generation algorithm and doesn't end until the Room Count is equal to the Number of Rooms
+specified by the user. At the start of the while loop, a list of lists of game objects is
+created and each of the node lists in the Current Room's Room Data Container script is added
+to this list in the order of Top, Left, Right, and then Bottom. The order of adding them is
+important as keeping track of the direction a node is facing is crucial in placing another
+room and hallway on the correct side of the Current Room. Another few variables are also
+initialized, specifically the integer "Number of Adjacencies" that tracks the total number of
+nodes available for a given room and the game object "Current Node" for tracking the current
+node that has been selected to use during the algorithm. This is also where a Loop Counter
+variable is initialized so that in the off chance the algorithm fails to produce a map
+correctly and would be stuck in an infinite loop, it resets the map by removing every room it
+placed down so far it made and starts it from scratch.
+
+  The next section of the algorithm starts a for loop that continues until either the number
+of rooms placed down within it equals the Number of Adjacencies for the Current Room or the
+loop goes long enough that it can't find any spot to place another room connected to the
+Current Room. At the start of the for loop, the Loop Counter is incremented by 1 and a new
+room is randomly chosen from the Rooms list to place down adjacent to the Current Room. This
+variable is called the Next Room Prefab, and similarly to the Starting Room, a list of lists
+of game objects is created to contain all of the Next Room Prefab's nodes in the same order
+mentioned before. It then creates a new variable called Node Direction which is assigned to
+a random integer from 0 to 3 inclusively. This will determine the side of the Current Room
+on which the Next Room will attempt to be placed. In the same order as the node lists, the
+Node Direction represents up when 0, left when 1, right when 2, and down when 3. Then, using
+this Node Direction, two nodes from the corresponding lists are randomly chosen to be the
+connectors between the two rooms. If it so happens that either of the lists for the randomly
+chosen Node Direction are empty, then it mark it as a failure to reset this loop slightly
+later. If the random node selection is successful, the algorithm can go on to attempt the
+instantiation of the Next Room Prefab.
+
+  Depending on whether or not the Node Direction would make a vertical or horizontal
+connection, the algorithm to determine the coordinates of the Next Room are slightly
+different. For both cases, however, the distance between the rooms is calculated by
+taking the position of the Current Room's Node and adding the distance between the
+Next Room's Node and the center of the Next Room. Then the Vertical or Horizontal Gap is
+added to that value depending on the positioning so that a hallway can fit neatly between
+the two rooms. The rooms are also lined up laterally so that the hallway will directly
+connect the Current Room's Node to the Next Room's Node. After all these calculations are
+finished, the Next Room Prefab is instantiated in the position determined just previously
+and it's parent is set to the Map Container given by the user. The next important step is
+determining if the Next Room's placement is valid or if it overlaps another room, so a
+Collisions list is created and run through the Polygon Collider 2D of the Next Room to
+gather any collisions it has in the scene. If there are any values within this Collisions
+list, the newly instantiated Next Room is destroyed and the run is marked as a failure in
+order to try again on the next loop. If there aren't any collisions, however, then the Next
+Room's instantiation was successful and the last steps can be taken to ensure this room is
+properly tracked. Immediately, the Next Room is added to the Placed Rooms list and the Room
+Count is increased by 1. Depending on the direction of connection, a Vertical or Horizontal
+Hallway will be instantiated directly between the two rooms' selected nodes. In order to
+prevent the algorithm from later selecting a node that has already been used, both of the
+nodes that were used for this loop are removed from their respective rooms' data containers.
+
+  The final part of the for loop, after the instantiation process is finished, checks for if
+the Room Count is greater than or equal to the Number of Rooms specified by the user and
+immediately ends the program if it is. Then it checks for if the Current Room is out of any
+more open adjacencies or if the loop has gone on too long. In either case, the Current Room
+variable is set to the next object in the Placed Rooms list so that it can begin to generate
+rooms connected to a different room to expand the map out further. Additionally, the loop
+counter is reset to 0 and the Placed Room Number is incremented by 1 so that the next time
+it must change the Current Room, it is properly proceeding to the next room in the Placed
+Rooms list. If it is detected that the algorithm has run out of rooms to set the Current
+Room to and it's still less than the Number of Rooms given by the user, that means it has
+fallen into an infinite loop and the entire program is reset. It does this by deleting every
+room put into the Placed Rooms list and the creating a new Start Room to try the whole thing
+again. Finally, at the end of the process to change the Current Room, the algorithm
+breaks out of the for loop and starts back at the while loop in order to reinitialize the
+Current Room's node list to accurately represent the new Current Room. If there are more open
+adjacencies with the Current Room before changing it though, the algorithm only goes back to
+the start of the for loop in order to continue creating rooms connected to the current one.
+After going through each loop as many times as is necessary, enough rooms have been
+created to adhere to the specifications set by the user and the map generation process is
+considered complete.
+
 # THIRD CHAPTER ENDS HERE
 
 # Experiments
