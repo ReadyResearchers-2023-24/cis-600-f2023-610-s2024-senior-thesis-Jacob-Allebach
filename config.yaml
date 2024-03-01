@@ -12,7 +12,7 @@ logo: 'images/logo'
 # Template Values: DO NOT TOUCH
 
 # Bibliography
-csl: https://www.zotero.org/styles/journal-of-the-acm # See https://www.zotero.org/styles for more styles.
+csl: https://cdn.githubraw.com/ReadyResearchers-2023-24/thesis-resources-cdn/main/cdn/journal-of-the-acm.csl # See https://www.zotero.org/styles for more styles.
 bibliography: references.bib # See https://github.com/jgm/pandoc-citeproc/blob/master/man/pandoc-citeproc.1.md for more formats.
 suppress-bibliography: false
 link-citations: true
