@@ -659,12 +659,49 @@ a typical structure used for this chapter.
 
 ## Experimental Design
 
-Especially as it pertains to responisble computing, if conducting experiments or
-evaluations that involve particular ethical considerations, detail those issues here.
+  For the assessment of this plugin's success, it required a bit of a different approach than
+a typical piece of software might need. With most programs, test cases are commonly used to
+determine that the code is properly functioning and produces accurate outputs when given
+specific inputs. Due to the goal of this research being an easy to use and robust plugin that
+will help developers create games faster, it didn't seem appropriate to gather data about how
+well the rooms were being generated in a vacuum. Rather than using test cases, a user study
+was performed that involved participants following an instruction sheet to learn how the
+plugin functioned and then utilizing its features to generate a map to their liking. The
+study was advertised around Allegheny College's campus and within several Discord servers
+affiliated with the college in order to find participants that might be interested in the
+plugin.
 
 ## Evaluation
 
+* Discussion of feedback:
+  * Ease-of-use
+    * All participants stated that it was intuitive and straightforward with the instructions that were given
+    * Even at varying levels of experience with Unity, plugin was easy to use
+  * Difficulties
+    * The connectors for rooms were a bit difficult to figure out for some
+    * The involvement of the polygon collider slowed things down a bit
+  * Ease-of-use suggestions
+    * Video tutorial would be significantly easier to understand instructions
+    * Debug logs and missing component warnings would be extremely useful for developers
+    * Having a set of premade assets come with the plugin package would be nice for examples
+  * Practicality
+    * Seems very practical as a base for games
+    * Could use more options and smarter generation logic
+  * Limitations
+    * No significant limitations in ability to create the desired maps
+    * It was noted that the colliders could cause problems with other in-scene objects without making use of tags/layers
+  * Feature suggestions
+    * Having smarter logic for generation would be nice instead of just random pieces
+    * Being able to run multiple scenes at the same time to view potential map generations
+    * Being able to assign starting rooms and ending rooms would be convenient for control in generation
+    * On the same note, being able to weigh the frequency of rooms by assigning floating point values would be good for customization
+
 ## Threats to Validity
+
+User study was not able to be done with a large number of people, so it's possible a larger testing
+group would reveal flaws that weren't identified by those who participated in this study. In addition,
+due to it being a user study with individuals of varying levels of expertise with Unity, it's probable
+that different participants could have drastically different answers to many of the questions asked.
 
 # Conclusion
 
