@@ -649,13 +649,9 @@ After going through each loop as many times as is necessary, enough rooms have b
 created to adhere to the specifications set by the user and the map generation process is
 considered complete.
 
-# THIRD CHAPTER ENDS HERE
+![An example of a map generated using a set of rooms labeled `A` through `E` and two hallways for horizontal and vertical connections.](images/GenerationExample.PNG)
 
 # Experiments
-
-This chapter describes your experimental set up and evaluation. It should also
-produce and describe the results of your study. The section titles below offer
-a typical structure used for this chapter.
 
 ## Experimental Design
 
@@ -666,42 +662,97 @@ specific inputs. Due to the goal of this research being an easy to use and robus
 will help developers create games faster, it didn't seem appropriate to gather data about how
 well the rooms were being generated in a vacuum. Rather than using test cases, a user study
 was performed that involved participants following an instruction sheet to learn how the
-plugin functioned and then utilizing its features to generate a map to their liking. The
-study was advertised around Allegheny College's campus and within several Discord servers
-affiliated with the college in order to find participants that might be interested in the
-plugin.
+plugin functioned and then utilizing its features to generate a map to their liking. 
+
+  The study was advertised around Allegheny College's campus and within several Discord
+servers affiliated with the college in order to find participants that might be interested
+in the plugin. It was specifically asked that anyone who signed up for the study be at least
+slightly familiar with Unity and how to navigate the game engine's interface. The purpose of
+this requirement was so that the study focused on the user's interaction with the plugin
+itself, whether that be positive or negative, and didn't involve the user struggling to figure
+out how to utilize the basics of Unity's interface. For those who did sign up for the study, a
+brief email communication was made to determine the date and time each participant would be
+trying out the plugin, and every instance of the study was done in person with the same
+computer to keep consistency. Each participant was given an instruction sheet on how to use
+the plugin as well as a collection of premade assets to use during the study, then they were
+given as much time as they wanted to work with the plugin in any way they liked.
+
+![All three pages of the instruction sheet that was given to participants of the study while they were using the plugin.](images/StudyInstructionSheet.png)
 
 ## Evaluation
 
-* Discussion of feedback:
-  * Ease-of-use
-    * All participants stated that it was intuitive and straightforward with the instructions that were given
-    * Even at varying levels of experience with Unity, plugin was easy to use
-  * Difficulties
-    * The connectors for rooms were a bit difficult to figure out for some
-    * The involvement of the polygon collider slowed things down a bit
-  * Ease-of-use suggestions
-    * Video tutorial would be significantly easier to understand instructions
-    * Debug logs and missing component warnings would be extremely useful for developers
-    * Having a set of premade assets come with the plugin package would be nice for examples
-  * Practicality
-    * Seems very practical as a base for games
-    * Could use more options and smarter generation logic
-  * Limitations
-    * No significant limitations in ability to create the desired maps
-    * It was noted that the colliders could cause problems with other in-scene objects without making use of tags/layers
-  * Feature suggestions
-    * Having smarter logic for generation would be nice instead of just random pieces
-    * Being able to run multiple scenes at the same time to view potential map generations
-    * Being able to assign starting rooms and ending rooms would be convenient for control in generation
-    * On the same note, being able to weigh the frequency of rooms by assigning floating point values would be good for customization
+  After each participant in the study decided they were finished with using the plugin, they
+were asked several questions relating to the ease-of-use of the plugin as well as difficulties
+they had and suggestions that could improve the plugin in the future. The data that I got from
+these interview questions was very important in assessing how well the plugin performs when
+being operated by a developer that just learned how to use it.
+
+![The image assets that were given to participants of the study for using with the plugin.](images/StudyAssets.png)
+
+  The most important part of the feedback data was about how easy the plugin was to use. Unanimously,
+every participant shared the sentiment that it was very intuitive and straightforward to use from
+reading the instruction sheet they were given. Even between participants that had varying levels of
+experience with Unity, the plugin was easy to understand and implement into a new project. This
+was extremely good to hear as ease-of-use was one of the main goals for this research to be
+considered a success. With that in mind, however, there were still some difficulties that users had
+when trying to get familiar with using the plugin. The first is that the process of adding connectors
+to each room was difficult for several participants to understand at first. As the connector creation
+process is the most complicated step in operating this plugin, this was a very understandable
+challenge, however every participant that struggled with this process also noted that they got a hold
+of it after spending more time testing it out and getting used to it. The second main difficulty was
+that the involvement of the polygon collider when creating a room slowed down the process a bit since
+getting all of the dimensions accurate takes a sizeable amount of time. This is another understandable
+point since polygon colliders are more complicated to set up than colliders of specific shapes, and
+it was noted by one of the participants that the colliders on the rooms could cause problems with any
+other colliders in the scene since the plugin is not currently making use of object tags and layers
+for the room objects.
+
+  When asked about the practicality of the plugin for use in developing video games, each participant
+stated that it seems very practical as a base for some games and that it could be built off of very
+effectively. It was also noted that it could use more options available to the user and have a bit
+smarter of generation logic in order for it to be more widely usable for developers of varying
+experience and games with different generation requirements. Along those lines, there were many
+suggestions gathered from the participants for making the plugin easier to use and for it to have
+more robust features. Firstly, it was recommended to include a video tutorial in the plugin's
+resources in addition to the instruction sheet as a video can be a bit easier to follow than words
+on a page. This could make the plugin much easier to understand at a glance than trying to parse just
+the current instructions that are available. The second major suggestion for ease-of-use was to add
+debug logs for the user and warnings when components are missing from the rooms, which would help
+developers to know how the plugin operates and if they've made a mistake while setting it up. Lastly,
+it was recommended to include a set of premade assets, like room and hallway sprites, with the plugin
+by default so that newer developers can experiment with it without having to develop their own assets
+entirely from scratch. All of these suggestions were extremely helpful in finding new ways of making
+this plugin a tool usable at any level of experience with Unity. As far as feature suggestions for
+the plugin, a consistent request from several participants was to give the generation script smarter
+logic for generating the maps. As it stands, every room is randomly connected to another room and
+placed into the scene with no specifications for generation type. By having smarter generation logic,
+the user could be given more options for creating the type of map that they want. Continuing on this
+point, participants suggested adding the ability to assign starting rooms and ending rooms that could
+control the generation by specifying certain rooms that the generator would have to start with or
+create as the final room. This would be very relevant for games that have bosses or specific exits
+as the user most likely wouldn't want the boss to generate directly next to the entrance. It was also
+noted that having the ability to weight certain rooms for the generation process could be good as
+well. This means that the user would be able to specify some rooms to get generated more or less
+often than others, making it so that there can be special rooms that show up rarely or common rooms
+that would be frequently seen. Finally, it was suggested that it would be nice for the user to have
+the ability to view several generations at once to get a sense of how the generator is currently
+operating with the inputs they've given it.
+
+  All of this feedback was extremely helpful in finding out where the plugin succeeded and where it
+needs a bit more work. It's very clear that it accomplished its main goal of being a fairly easy to
+use plugin while providing a good foundation for developing a new game, though it certainly has some
+areas to improve as far as more robust features go.
 
 ## Threats to Validity
 
-User study was not able to be done with a large number of people, so it's possible a larger testing
-group would reveal flaws that weren't identified by those who participated in this study. In addition,
-due to it being a user study with individuals of varying levels of expertise with Unity, it's probable
-that different participants could have drastically different answers to many of the questions asked.
+Because the user study was not able to be done with a large number of people, it's possible a larger
+testing group would reveal flaws that weren't identified by those who participated in this study. In
+addition, due to it being a user study with individuals of varying levels of expertise with Unity,
+it's probable that different participants could have drastically different answers to many of the
+questions asked. In the end, all of the feedback acquired from the user study is subjective from the
+perspective of the participants, so even though a large amount of the conclusions made from the study
+were agreed upon unanimously by the participants, it doesn't necessarily reflect the response it
+would get from the majority of game developers if this plugin was to be officially released.
 
 # Conclusion
 
