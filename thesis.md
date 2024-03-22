@@ -504,6 +504,8 @@ Hallway will be instantiated directly between the two rooms' selected nodes. In 
 prevent the algorithm from later selecting a node that has already been used, both of the
 nodes that were used for this loop are removed from their respective rooms' data containers.
 
+![A diagram explaining the general flow of the generation algorithm with helpful visuals.](images/GenerationAlgorithmDiagram.png)
+
   The final part of the for loop, after the instantiation process is finished, checks for if
 the Room Count is greater than or equal to the Number of Rooms specified by the user and
 immediately ends the program if it is. Then it checks for if the Current Room is out of any
