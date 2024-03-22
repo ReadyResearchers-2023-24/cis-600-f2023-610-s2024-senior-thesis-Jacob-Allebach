@@ -1,89 +1,4 @@
-# Template description
-
-This repository contains the starter materials for your thesis in Computer
-Science 600 and 610 in Fall 2022  and Spring 2023 academic term. The main
-directory of this repository contains the Markdown template for a project that
-is designed for use with GitHub Classroom. To learn more about the course
-in which these assignments were completed, please refer to the `README.md` file.
-
-The template specifies various settings in the `config.yaml` file included in the
-repository. Change the appropriate values under the `Project-specific values`
-heading. Changing other values outside of that section may cause the project to
-fail to build. **Modify these values at your own risk.**
-
-Author your thesis in the `thesis.md` document using appropriate Markdown
-hierarchy and syntax; GitHub Actions will automatically create a PDF from the
-`abstract.md` and `proposal.md` files. Consult the `README` of the proposal
-repository to learn how to properly build and release this PDFs.
-
-## Citations and references
-
-Including references throughout requires a specific pseudo-Markdown tag, demonstrated
-in the following blockquote. (Inspect the `thesis.md` file to see the format.)
-
-> A citation, when included correctly, will appear as it does at the end of this
-> sentence. [@plaat1996research]
-
-## Labeling figures
-
-To label a figure (i.e. an image), referencing the image using correct Markdown
-will automatically caption the figure:
-
-```markdown
-![Label](images/IMAGE_NAME.png)
-```
-
-## Labeling tables
-
-To provide a label for a table, write a short caption for the table and prefix the caption
-with `Table:` as in the example below:
-
-```
-Table: A two-row table demonstrating tables
-
-|Row number | Description |
-|:----------|:------------|
-|1          |Row 1        |
-|2          |Row 2        |
-```
-
-## Other template information
-
-Two things specific to this template to also keep in mind:
-
-1. It is your responsibility to remove this description section before building
-the PDF version you plan to defend.
-2. References _will only appear if cited correctly_ in the text
-
-## Note on `LaTeX` commands
-
-Documents may include specific `LaTeX` commands _in Markdown_. To render these, surround the commands
-with markup denoting `LaTeX`. For example:
-
-```
-Checkmark character:   $\checkmark$
-Superscript character: $^{\dag}$
-```
-
-If using a special package not included in the template, add the desired `LaTeX`
-package or command/macro to the `header-includes` property in [config.yaml](config.yaml).
-
-Should this package not be included in the environment shipped with this template,
-you may also need to add the package to the [GitHub Actions Workflow](.github/workflows/main.yml).
-
-Direct any questions about issues to your first reader.
-
 # Introduction
-
-This chapter describes your completed senior thesis work,
-including the overall aims  and the background motivating your research. Whenever
-possible, you should use one or more concrete examples and technical diagrams.
-
-It is often useful and necessary to separate the introduction into multiple sections.
-Several possible sections are proposed below, you can use these or distribute your
-introductory text into sections in another way.
-
-The headings below propose _one way_ you might structure this section of the document.
 
 ## Opening
 
@@ -229,15 +144,6 @@ replace the hard work of long-time developers that know how to create the exact 
 needed.
 
 # Related work
-
-This chapter includes a broad and detailed review of relevant existing work.
-The literature review should provide background and context for the thesis work.
-The subsections may be organized in whatever manner seems best suited to the material--
-chronological, or by topic, or according to some other criteria
-(e.g., primary versus secondary resources).
-
-If ethical issues are central to this work, you should also address historical and
-contemporary issues or efforts made to address them.
 
 ## Preface
 
@@ -411,32 +317,7 @@ plugin.
 
 # Method of approach
 
-This chapter answers the "how" question - how did you complete your project,
-including the overall design of your study, details of the algorithms and tools you
-have used, etc.  Use technical diagrams, equations, algorithms, and paragraphs of text
-to describe the research that you have completed. Be sure to number all figures and
-tables and to explicitly refer to them in your text.
-
-This should contain:
-
-* lists
-* with points
-* and more points
-  * possibly subpoints
-
-For those projects whose implications address social or moral issues (i.e. ethical
-standards, causes, effects), you will want to use this section to describe how you
-actively mitigated or considered these issues.
-
 ## Part 1: The User's Perspective
-
-* This first section will discuss how the plugin is interacted with from the user's end
-* There won't be any code involved in this section of the chapter, but it will instead
-  focus on what a developer using this plugin will see and work with in the Unity
-  interface
-* More specifically, this will go over the `MapGenerator` script, the `RoomDataContainer`
-  script, the process of making a room, and adding all of the necessary game objects and
-  data to the map generator itself
 
   To begin the explanation of the plugin's inner workings, it's important to understand
 how the plugin functions from the Unity interface. The intention of this project was to make
@@ -524,11 +405,6 @@ performed properly, the script will generate a full map with connected rooms acc
 user specifications.
 
 ## Part 2: The Algorithm Behind the Interface
-
-* This section is going over exactly what's going on within the scripts and how it's all
-  formatted
-* The algorithm is very complicated itself and somewhat convoluted in some areas, so good
-  diagrams will be needed to explain everything in an understandable fashion
 
   Now that the user inputs are clearly defined, the code within the scripts can do its part
 and generate a random map utilizing what the user provided. The main variables used in the
@@ -673,9 +549,11 @@ itself, whether that be positive or negative, and didn't involve the user strugg
 out how to utilize the basics of Unity's interface. For those who did sign up for the study, a
 brief email communication was made to determine the date and time each participant would be
 trying out the plugin, and every instance of the study was done in person with the same
-computer to keep consistency. Each participant was given an instruction sheet on how to use
-the plugin as well as a collection of premade assets to use during the study, then they were
-given as much time as they wanted to work with the plugin in any way they liked.
+computer to keep consistency. Overall, three participants were able to take part in the study,
+with each individual session taking about 30 minutes. These studies were performed over the
+course of a week. During the sessions, each participant was given an instruction sheet on how
+to use the plugin as well as a collection of premade assets to use during the study, then they
+were given as much time as they wanted to work with the plugin in any way they liked.
 
 ![All three pages of the instruction sheet that was given to participants of the study while they were using the plugin.](images/StudyInstructionSheet.png)
 
@@ -756,22 +634,105 @@ would get from the majority of game developers if this plugin was to be official
 
 # Conclusion
 
-Traditionally, this chapter addresses the areas proposed below as sections, although
-not necessarily in this order or organized as offered. However, the last section --
-"Ethical Implcations" is required for this chapter. See the heading below for more
-details.
+  The final version of the plugin that this research resulted in truly could serve as a solid
+foundation for a game made by beginner and intermediate game developers. It functions well and lets
+the user customize the kinds of rooms they want to generate in a map, which allows for a lot of
+diverse maps to be created through the use of the plugin's fairly easy to use interface. There are
+absolutely a lot of ways this plugin could be improved, though, and it's not in a place where it
+has enough options to use in many games with specific generation needs. That being said, this research
+has proven that the plugin can be developed much further into something with even more versatility
+that could be put into a large assortment of games without much trouble, and it has also accomplished
+the main goal of making the plugin easy to use for users of all skill levels.
 
 ## Summary of Results
 
+  One of the main results of this research is that the plugin itself functions as it was intended to
+and allows for random maps to be created in the arena style generation. The tutorial featured on the
+plugin's GitHub page has all the steps laid out to instruct a new user on how it operates, from adding
+the scripts to a Unity project's assets folder to each intricate step involved with creating a room.
+Aside from some rare bugs that have yet to be solved, the final version of the plugin does exactly
+what it was meant to do. Custom-made rooms can be created and added to the generator, and the user
+can choose exactly how many rooms they want the map to be comprised of. Through interacting with the
+plugin's interface in Unity, generating random maps works exactly as it was intended to.
+
+  The other key aspect to the overall goals of this research was making the plugin something that
+could be easily operated by users of all skill levels. More specifically, it was especially important
+that the user was not required to look at any of the code in either of the scripts so that everything
+could be done from the front end of the Unity interface. Being able to keep all of the algorithms and
+code behind the scenes from the user means that they don't have to worry about that part of the
+development process and can focus more on making the games they want to make. Based on the data from
+the user study, this goal was absolutely achieved. In each instance, the participants stated that
+the only difficulties they had with the plugin became easier to understand as they spent more time
+with it. Despite the small group size, it still very much seems as though the plugin was successful
+at being something easily usable.
+
 ## Future Work
+
+  Although they were far out of the scope for this project, there were many additional feature ideas
+and suggestions proposed before development as well as from the participants of the user study that
+could be implemented in the future to make this plugin even better. One of the main improvements that
+could be made is just generally improving the generation algorithm so that it is more flexible and
+adaptable in the future. Right now, the algorithm just goes straight through in one big code block
+without any real function calls. Modularizing the generation algorithm would make it so that it not
+only looks better visually, but it would set up for vast improvements to versatility and variation in
+generation types. Speaking of them, another massive improvement to the plugin would be adding different
+types of generation algorithms. The current version of the plugin uses arena style generation, but it
+was also intended to feature the corridor, star, and branch style generations before realizing that
+they were outside of the scope for the timeline of this project. Another way to give users more
+control over the generation would be to implement the weighting of rooms or adding slots for specific
+room types, such as starting, ending, and special rooms. This idea was conceived before development
+began, but it was also mentioned by several partipants of the study, so it's already a highly
+requested feature for the plugin. Some other small, but still important, improvements to the plugin
+are fixing the remaining bugs that exist as well as adding debug logs so that the users can get
+some kind of information on the performance of the generator or if they've made any errors while
+setting it up. Another small quality of life improvement would be to make use of Unity's tagging
+system so that the rooms' colliders won't conflict with other colliders potentially placed within
+room prefabs or other objects already in the scene. There are a plethora of other ideas that were
+proposed throughout the course of this research, but if anything it goes to show just how much
+room this project has to grow from this point onward. With this being the first finished version of
+it, this plugin has a lot of potential to become a robust, easy to use, and efficient plugin that
+could help developers to more easily make the games they want to make.
 
 ## Future Ethical Implications and Recommendations
 
-Especially as pertains to the public release or use of your software or methods, what
-unresolved or special issues remain? What recommendations might you make?
+  Although this project doesn't significanly impact the game development industry as it currently
+stands, that doesn't mean it couldn't in the future. If all of the previously mentioned features
+are implemented into the plugin and it's made into something that developers consistently use, there
+are a couple of implications it could have within the game development space. As mentioned in the
+ethical implications section of the introduction, this plugin is performing a very specific task
+that won't be relevant to most games, but the amount of work it would remove for games that need
+map generation would be fairly significant. Hypothetically, if the plugin were to be so useful that
+it becomes commonly used in a large number of games, it could mean that developers learning how to
+make games are relying too heavily on this plugin to do all of the back end algorithmic work for
+them. Although that's not inherently a bad thing, it's possible that those developers won't ever
+learn how the generation algorithms actually work, so if they need to do something for their game
+that isn't a feature in the plugin, they wouldn't have the knowledge and skills to build the
+feature themselves, which would heavily detriment the creative process that they try to have. In
+order to prevent that kind of thing from happening, it would probably be a good idea to have some
+educational content within the plugin's repository alongside the instructions for using it. This
+would make it so that even for the people that just want to use the plugin, they have easy access
+to resources that would help them build custom algorithms to do what they might need it to do.
+Even though it's not a fool-proof solution to the issue, it at least encourages the learning of
+the algorithm design that went into making the plugin and fosters a space that gets people to
+learn about the tools they use for their games.
 
 ## Conclusions
 
+  Throughout the course of researching and working on the project, this plugin has become something
+truly unique within the game development space. Even though it is fairly rudimentary right now, the
+plugin has so much potential to develop into an amazing tool for game developers of any skill level.
+Even the current version of it produces high quality results and has proven itself to be easily
+usable quickly after trying it out. With the amount of ways the plugin can be improved from here,
+there's no doubt it has the capability to continue growing with time and effort. It is my hope that
+this plugin and the work that went into it will serve as help and inspiration to new game developers
+that are just entering the space for the first time. This shows that even the most niche of tools
+can still be practical to build and put out there because almost every plugin developers currently
+use and even the engines themselves were created as a way to help other developers more easily
+create, and so many of the tools developers currently use were built off of those plugins and
+engines originally created so long ago. The projects built from other people's work continue to be
+created and inspire even more people to create tools of their own, so no matter how specific the
+project might be, there will always be a place for it where someone is thankful for the work put in
+before them.
 
 # References
 
