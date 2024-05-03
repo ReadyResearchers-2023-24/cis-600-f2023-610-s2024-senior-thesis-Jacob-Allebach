@@ -14,7 +14,7 @@ of games, and it's great to see that many game developers create these plugins s
 others can have an easier time entering the game development space. It's no wonder that
 there are so many high quality games being released from independent, amateur game
 developers when the tools to do so are just a few internet searches away. This project
-is an attempt to make game development even more accessible by creating a Unity plugin
+shows a way to make game development even more accessible by creating a Unity plugin
 to assist with the random generation of maps, specifically in the style of Roguelike
 games.
 
@@ -46,7 +46,7 @@ and places them around an area before connecting each one with hallways to gener
 sprawling, dungeon-like maps. The goal isn't just to create a good generation
 algorithm, but primarily to make the plugin easy to use so that those unfamiliar
 with coding something like it would still have the ability to create the game they
-want. In addition, the plugin itself is robust with many options for the user to select
+want. In addition, the plugin itself is fairly robust with options for the user to select
 from to specify parts of the generation process. Overall, it's a practical, low effort
 way for amateur game developers to more easily create games in the Roguelike genre.
 
@@ -100,7 +100,7 @@ although there are plugins available to assist with tile-by-tile generation, the
 precedent for helping developers with the room-and-connector generation this software
 implements. There are even examples of people online asking about how to perform map
 generation similar to that of Enter the Gungeon, so it is very clearly a tool that
-people want and would use to help develop games [@night2018generation].
+people have wanted and would use to help develop games [@night2018generation].
 
 ## Goals of the Project
 
