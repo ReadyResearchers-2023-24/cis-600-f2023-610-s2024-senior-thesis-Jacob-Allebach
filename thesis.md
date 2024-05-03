@@ -555,9 +555,8 @@ computer to keep consistency. Overall, three participants were able to take part
 with each individual session taking about 30 minutes. These studies were performed over the
 course of a week. During the sessions, each participant was given an instruction sheet on how
 to use the plugin as well as a collection of premade assets to use during the study, then they
-were given as much time as they wanted to work with the plugin in any way they liked.
-
-![All three pages of the instruction sheet that was given to participants of the study while they were using the plugin.](images/StudyInstructionSheet.png)
+were given as much time as they wanted to work with the plugin in any way they liked (See
+[Appendix](#appendix) for Instruction Sheet).
 
 ## Evaluation
 
@@ -585,30 +584,38 @@ getting all of the dimensions accurate takes a sizeable amount of time. This is 
 point since polygon colliders are more complicated to set up than colliders of specific shapes, and
 it was noted by one of the participants that the colliders on the rooms could cause problems with any
 other colliders in the scene since the plugin is not currently making use of object tags and layers
-for the room objects.
+for the room objects. When asked about the practicality of the plugin for use in developing video games,
+each participant stated that it seems very practical as a base for some games and that it could be built
+off of very effectively. It was also noted that it could use more options available to the user and have
+a bit smarter of generation logic in order for it to be more widely usable for developers of varying
+experience and games with different generation requirements.
 
-  When asked about the practicality of the plugin for use in developing video games, each participant
-stated that it seems very practical as a base for some games and that it could be built off of very
-effectively. It was also noted that it could use more options available to the user and have a bit
-smarter of generation logic in order for it to be more widely usable for developers of varying
-experience and games with different generation requirements. Along those lines, there were many
-suggestions gathered from the participants for making the plugin easier to use and for it to have
-more robust features. Firstly, it was recommended to include a video tutorial in the plugin's
-resources in addition to the instruction sheet as a video can be a bit easier to follow than words
-on a page. This could make the plugin much easier to understand at a glance than trying to parse just
-the current instructions that are available. The second major suggestion for ease-of-use was to add
-debug logs for the user and warnings when components are missing from the rooms, which would help
-developers to know how the plugin operates and if they've made a mistake while setting it up. Lastly,
-it was recommended to include a set of premade assets, like room and hallway sprites, with the plugin
-by default so that newer developers can experiment with it without having to develop their own assets
-entirely from scratch. All of these suggestions were extremely helpful in finding new ways of making
-this plugin a tool usable at any level of experience with Unity. As far as feature suggestions for
-the plugin, a consistent request from several participants was to give the generation script smarter
-logic for generating the maps. As it stands, every room is randomly connected to another room and
-placed into the scene with no specifications for generation type. By having smarter generation logic,
-the user could be given more options for creating the type of map that they want. Continuing on this
-point, participants suggested adding the ability to assign starting rooms and ending rooms that could
-control the generation by specifying certain rooms that the generator would have to start with or
+|Activity|Feedback|
+|--------|--------|
+|Overall Experience|Very intuitive and easy to use|
+|Importing Assets|Easy to put into projects|
+|Room Creation|Difficult, but able to get used to it|
+|Connector Placement|A bit confusing at first|
+|Polygon Collider Placement|Tedious due to precision|
+|Practicality|Very useful for game development|
+
+  Along those lines, there were many suggestions gathered from the participants for making the plugin
+easier to use and for it to have more robust features. Firstly, it was recommended to include a video
+tutorial in the plugin's resources in addition to the instruction sheet as a video can be a bit easier
+to follow than words on a page. This could make the plugin much easier to understand at a glance than
+trying to parse just the current instructions that are available. The second major suggestion for
+ease-of-use was to add debug logs for the user and warnings when components are missing from the rooms,
+which would help developers to know how the plugin operates and if they've made a mistake while setting
+it up. Lastly, it was recommended to include a set of premade assets, like room and hallway sprites,
+with the plugin by default so that newer developers can experiment with it without having to develop
+their own assets entirely from scratch. All of these suggestions were extremely helpful in finding new
+ways of making this plugin a tool usable at any level of experience with Unity. As far as feature
+suggestions for the plugin, a consistent request from several participants was to give the generation
+script smarter logic for generating the maps. As it stands, every room is randomly connected to another
+room and placed into the scene with no specifications for generation type. By having smarter generation
+logic, the user could be given more options for creating the type of map that they want. Continuing on
+this point, participants suggested adding the ability to assign starting rooms and ending rooms that
+could control the generation by specifying certain rooms that the generator would have to start with or
 create as the final room. This would be very relevant for games that have bosses or specific exits
 as the user most likely wouldn't want the boss to generate directly next to the entrance. It was also
 noted that having the ability to weight certain rooms for the generation process could be good as
@@ -740,3 +747,11 @@ before them.
 
 ::: {#refs}
 :::
+
+# Appendix
+
+![Page 1 of the instruction sheet that was given to participants of the study while they were using the plugin.](images/StudyInstructionSheet1.png)
+
+![Page 2 of the instruction sheet that was given to participants of the study while they were using the plugin.](images/StudyInstructionSheet2.png)
+
+![Page 3 of the instruction sheet that was given to participants of the study while they were using the plugin.](images/StudyInstructionSheet3.png)
